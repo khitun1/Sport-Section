@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0aafe454-92d1-49ab-8c37-6bef2db0435a" name="Changes" comment="new">
-      <change afterPath="$PROJECT_DIR$/.idea/Sport-Section.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sport-section.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +47,7 @@
       <option name="presentableId" value="Default" />
       <updated>1643792099834</updated>
       <workItem from="1643792128148" duration="2650000" />
-      <workItem from="1644153661364" duration="288000" />
+      <workItem from="1644153661364" duration="1436000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1644153944062</created>
@@ -61,7 +56,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644153944062</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="new">
+      <created>1644153986643</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1644153986643</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
