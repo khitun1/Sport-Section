@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0aafe454-92d1-49ab-8c37-6bef2db0435a" name="Changes" comment="Database connect env params">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,12 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Database Script.sport-section.sql">
+    <configuration name="sport-section.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/sport-section.sql" />
+      <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
     <configuration name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php">
       <method v="2" />
     </configuration>
@@ -67,7 +71,7 @@
       <workItem from="1644334023024" duration="1149000" />
       <workItem from="1644335245706" duration="48000" />
       <workItem from="1644754865446" duration="1239000" />
-      <workItem from="1644756139016" duration="1391000" />
+      <workItem from="1644756139016" duration="1593000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1644153944062</created>
@@ -90,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644207777054</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Database connect env params">
+      <created>1644757578532</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1644757578532</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
