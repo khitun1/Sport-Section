@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0aafe454-92d1-49ab-8c37-6bef2db0435a" name="Changes" comment="new">
+    <list default="true" id="0aafe454-92d1-49ab-8c37-6bef2db0435a" name="Changes" comment="Database connect env params">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +37,18 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.index.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -48,6 +60,14 @@
       <updated>1643792099834</updated>
       <workItem from="1643792128148" duration="2650000" />
       <workItem from="1644153661364" duration="1436000" />
+      <workItem from="1644207646265" duration="4529000" />
+      <workItem from="1644213423530" duration="73000" />
+      <workItem from="1644213609009" duration="49000" />
+      <workItem from="1644329498425" duration="621000" />
+      <workItem from="1644334023024" duration="1149000" />
+      <workItem from="1644335245706" duration="48000" />
+      <workItem from="1644754865446" duration="1239000" />
+      <workItem from="1644756139016" duration="1391000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1644153944062</created>
@@ -63,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644153986643</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="new">
+      <created>1644207777054</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1644207777054</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -82,6 +109,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new" />
-    <option name="LAST_COMMIT_MESSAGE" value="new" />
+    <MESSAGE value="Database connect env params" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database connect env params" />
   </component>
 </project>
