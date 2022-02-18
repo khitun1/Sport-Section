@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 07 2022 г., 06:32
+-- Время создания: Фев 18 2022 г., 10:28
 -- Версия сервера: 10.3.13-MariaDB
 -- Версия PHP: 7.1.22
 
@@ -36,6 +36,14 @@ CREATE TABLE `children` (
   `id_class` int(10) UNSIGNED NOT NULL COMMENT 'ID группы'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `children`
+--
+
+INSERT INTO `children` (`id`, `first_name_child`, `last_name_child`, `birthday`, `id_class`) VALUES
+(1, 'Антон', 'Говорухин', '2022-02-01', 1),
+(2, 'Иван', 'Хитун', '2022-02-02', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +56,13 @@ CREATE TABLE `class` (
   `id_user` int(10) UNSIGNED NOT NULL COMMENT 'ID пользователя'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `class`
+--
+
+INSERT INTO `class` (`id`, `class`, `id_user`) VALUES
+(1, '255', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -57,7 +72,9 @@ CREATE TABLE `class` (
 CREATE TABLE `payment` (
   `id` int(10) UNSIGNED NOT NULL COMMENT 'ID',
   `month` varchar(20) NOT NULL COMMENT 'Месяц',
+  `year` year(4) NOT NULL COMMENT 'Год',
   `payment` int(10) DEFAULT 0 COMMENT 'Оплата',
+  `plan_payment` int(11) NOT NULL COMMENT 'Плановая оплата',
   `id_children` int(10) UNSIGNED NOT NULL COMMENT 'ID ребёнка'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -142,13 +159,13 @@ ALTER TABLE `visit`
 -- AUTO_INCREMENT для таблицы `children`
 --
 ALTER TABLE `children`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID';
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `class`
 --
 ALTER TABLE `class`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID';
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `payment`
