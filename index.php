@@ -21,3 +21,4 @@
     }
     require "message.php";
     $_SESSION['msg'] = '';
+    require "footer.php";
