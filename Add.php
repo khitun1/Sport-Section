@@ -6,11 +6,12 @@
         $stmt->bindValue(':class', $_GET['class']);
         $stmt->bindValue(':coach', $_GET['coach']);
         $stmt->execute();
-        //echo("Категория успешно добавлена");
+        $_SESSION['msg'] = "Группа успешно добавлена";
     } catch (PDOexception $error) {
-        echo ("Ошибка добавления группы: " . $error->getMessage());
+        $_SESSION['msg'] = "Ошибка добавления группы: " . $error->getMessage();
     }
-    header('Location: http://sport-section.ru');
+    header('Location: http://sport-section.ru/index.php?page=class');
     exit( );
+
 
 

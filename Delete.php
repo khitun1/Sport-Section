@@ -5,10 +5,10 @@
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':id', $_GET['id']);
         $stmt->execute();
-        //echo ("Категория успешно удалена");
+        $_SESSION['msg'] = "Группа успешно удалена";
     } catch (PDOexception $error) {
-        echo ("Ошибка удаления группы: " . $error->getMessage());
+        $_SESSION['msg'] =  "Ошибка удаления группы: " . $error->getMessage();
     }
-    header('Location: http://sport-section.ru');
+    header('Location: http://sport-section.ru/index.php?page=class');
     exit( );
 
