@@ -35,7 +35,7 @@
         ?>
     </select>
     <p><label>
-        Изображение: <input type="file" name="filename">
-    </label></p>
+            Изображение: <input type="file" name="filename">
+        </label></p>
     <input type="submit" value="Создать">
 </form>

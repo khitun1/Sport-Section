@@ -11,7 +11,7 @@ class S3FileUploader implements FileUploader
 
     function store($file, $filename)
     {
-        return $this->s3client->putobject([
+        return $this->s3client->putObject([
             'Bucket' => $_ENV['S3_BUCKET'],
             'Key' => $_ENV['S3_KEY'] . '/' . $filename,
             'Body' => $file]);

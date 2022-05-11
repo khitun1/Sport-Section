@@ -1,9 +1,5 @@
 <?php
 
-use FileUploader\S3;
-use FileUploader\S3FileUploader;
-use FileUploader\UploadService;
-
 
     require "dbconnect.php";
 
@@ -18,14 +14,14 @@ use FileUploader\UploadService;
     $resource = $uploadService->upload($file,$filename);
 
     try {
-        $sql = 'INSERT INTO children(first_name_child,last_name_child,birthday,id_class, picture) VALUES(:first_name, 
-        :last_name,:birthday, :group, :picture)';
+        $sql = 'INSERT INTO children(first_name_child,last_name_child,birthday,id_class, picture_url) VALUES(:first_name, 
+            :last_name,:birthday, :group, :picture_url)';
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':first_name', $_POST['first_name']);
         $stmt->bindValue(':last_name', $_POST['last_name']);
         $stmt->bindValue(':birthday', $_POST['birthday']);
         $stmt->bindValue(':group', $_POST['group']);
-        $stmt->bindValue(':picture', $resource['objectURL']);
+        $stmt->bindValue(':picture_url', $resource['ObjectURL']);
         $stmt->execute();
         $_SESSION['msg'] = "Запись успешно добавлена";
     } catch (PDOexception $error) {

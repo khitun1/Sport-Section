@@ -15,8 +15,8 @@ class S3
             'credentials' => [
                 'key' => $_ENV['S3_KEY'],
                 'secret' => $_ENV['S3_SECRET'],
-                ],
-            ]);
+            ],
+        ]);
     }
 
     public function getS3Client(){
