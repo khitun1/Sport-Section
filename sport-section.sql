@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 18 2022 г., 10:28
+-- Время создания: Май 16 2022 г., 07:11
 -- Версия сервера: 10.3.13-MariaDB
 -- Версия PHP: 7.1.22
 
@@ -22,6 +22,7 @@ SET time_zone = "+00:00";
 -- База данных: `sport-section`
 --
 
+
 -- --------------------------------------------------------
 
 --
@@ -33,6 +34,7 @@ CREATE TABLE `children` (
   `first_name_child` varchar(255) NOT NULL COMMENT 'Имя',
   `last_name_child` varchar(255) NOT NULL COMMENT 'Фамилия',
   `birthday` date NOT NULL COMMENT 'Дата рождения',
+  `picture_url` text NOT NULL COMMENT 'Ссылка на изображение',
   `id_class` int(10) UNSIGNED NOT NULL COMMENT 'ID группы'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -40,9 +42,12 @@ CREATE TABLE `children` (
 -- Дамп данных таблицы `children`
 --
 
-INSERT INTO `children` (`id`, `first_name_child`, `last_name_child`, `birthday`, `id_class`) VALUES
-(1, 'Антон', 'Говорухин', '2022-02-01', 1),
-(2, 'Иван', 'Хитун', '2022-02-02', 1);
+INSERT INTO `children` (`id`, `first_name_child`, `last_name_child`, `birthday`, `picture_url`, `id_class`) VALUES
+(1, 'Антон', 'Говорухин', '2022-02-01', '', 1),
+(2, 'Иван', 'Хитун', '2022-02-02', '', 1),
+(3, 'sdf', 'sdf', '2022-03-05', '', 1),
+(6, 'вап', 'пав', '2022-03-01', '', 51),
+(7, 'ewq', 'qwe', '2022-03-02', '', 33);
 
 -- --------------------------------------------------------
 
@@ -61,7 +66,9 @@ CREATE TABLE `class` (
 --
 
 INSERT INTO `class` (`id`, `class`, `id_user`) VALUES
-(1, '255', 1);
+(1, '255', 1),
+(33, '609_91', 2),
+(51, '609_09', 1);
 
 -- --------------------------------------------------------
 
@@ -73,10 +80,44 @@ CREATE TABLE `payment` (
   `id` int(10) UNSIGNED NOT NULL COMMENT 'ID',
   `month` varchar(20) NOT NULL COMMENT 'Месяц',
   `year` year(4) NOT NULL COMMENT 'Год',
-  `payment` int(10) DEFAULT 0 COMMENT 'Оплата',
-  `plan_payment` int(11) NOT NULL COMMENT 'Плановая оплата',
+  `payment` int(10) DEFAULT NULL COMMENT 'Оплата',
   `id_children` int(10) UNSIGNED NOT NULL COMMENT 'ID ребёнка'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `payment`
+--
+
+INSERT INTO `payment` (`id`, `month`, `year`, `payment`, `id_children`) VALUES
+(1, 'Июнь', 2014, 222, 1),
+(2, 'Май', 2014, 10, 1),
+(3, 'Июнь', 2015, 444, 1),
+(4, 'Июнь', 2014, 33, 6),
+(5, 'Июнь', 2014, 1000, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `plan`
+--
+
+CREATE TABLE `plan` (
+  `id` int(10) NOT NULL COMMENT 'ID',
+  `month` varchar(255) NOT NULL COMMENT 'Месяц',
+  `year` int(10) NOT NULL COMMENT 'Год',
+  `plan` int(10) NOT NULL COMMENT 'Плановая оплата',
+  `id_class` int(10) UNSIGNED NOT NULL COMMENT 'ID группы'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `plan`
+--
+
+INSERT INTO `plan` (`id`, `month`, `year`, `plan`, `id_class`) VALUES
+(1, 'Июнь', 2014, 10000, 1),
+(5, 'Май', 2014, 20000, 1),
+(6, 'Июнь', 2015, 15000, 1),
+(7, 'Июнь', 2014, 4000, 51);
 
 -- --------------------------------------------------------
 
@@ -98,7 +139,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `login`, `md5password`, `is_admin`) VALUES
-(1, 'Дмитрий', 'Кузин', 'kda', '12345', 0);
+(1, 'Дмитрий', 'Кузин', 'kda', '12345', 0),
+(2, 'Иван', 'Хитун', 'khitun1', 'qwerty1', 0),
+(3, 'Евгений', 'Белоусов', 'belousov', '54321', 1);
 
 -- --------------------------------------------------------
 
@@ -112,6 +155,17 @@ CREATE TABLE `visit` (
   `visit` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Посещение',
   `id_children` int(10) UNSIGNED NOT NULL COMMENT 'ID ребёнка'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `visit`
+--
+
+INSERT INTO `visit` (`id`, `date`, `visit`, `id_children`) VALUES
+(1, '2022-03-01', 1, 1),
+(2, '2022-03-02', 1, 2),
+(3, '2022-03-02', 1, 6),
+(4, '2022-03-02', 1, 1),
+(5, '2022-03-08', 0, 7);
 
 --
 -- Индексы сохранённых таблиц
@@ -139,6 +193,13 @@ ALTER TABLE `payment`
   ADD KEY `id_children` (`id_children`);
 
 --
+-- Индексы таблицы `plan`
+--
+ALTER TABLE `plan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_class` (`id_class`);
+
+--
 -- Индексы таблицы `user`
 --
 ALTER TABLE `user`
@@ -159,31 +220,37 @@ ALTER TABLE `visit`
 -- AUTO_INCREMENT для таблицы `children`
 --
 ALTER TABLE `children`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `class`
 --
 ALTER TABLE `class`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT для таблицы `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID';
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT для таблицы `plan`
+--
+ALTER TABLE `plan`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID пользователя', AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID пользователя', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `visit`
 --
 ALTER TABLE `visit`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID';
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=6;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -206,6 +273,12 @@ ALTER TABLE `class`
 --
 ALTER TABLE `payment`
   ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`id_children`) REFERENCES `children` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `plan`
+--
+ALTER TABLE `plan`
+  ADD CONSTRAINT `plan_ibfk_1` FOREIGN KEY (`id_class`) REFERENCES `class` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `visit`
