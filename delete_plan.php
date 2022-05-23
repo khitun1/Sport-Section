@@ -9,5 +9,5 @@
     } catch (PDOexception $error) {
         $_SESSION['msg'] =  "Ошибка удаления записи: " . $error->getMessage();
     }
-    header('Location: http://sport-section.ru/index.php?page=plan');
+    header('Location: http://sport-section.herokuapp.com/index.php?page=plan');
     exit( );

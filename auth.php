@@ -32,6 +32,6 @@
     {
         session_unset();
         $_SESSION['msg'] =  "Вы успешно вышли из системы";
-        header('Location: http://sport-section.ru');
+        header('Location: http://sport-section.herokuapp.com');
         exit( );
     }
