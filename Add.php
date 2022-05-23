@@ -10,7 +10,7 @@
     } catch (PDOexception $error) {
         $_SESSION['msg'] = "Ошибка добавления группы: " . $error->getMessage();
     }
-    header('Location: http://sport-section.ru/index.php?page=class');
+    header('Location: /index.php?page=class');
     exit( );
 
 

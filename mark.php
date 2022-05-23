@@ -8,6 +8,6 @@
     } catch (PDOexception $error) {
         $_SESSION['msg'] =  "Ошибка отметки посещения: " . $error->getMessage();
     }
-    header('Location: http://sport-section.herokuapp.com/visit_show.php?class_show='.$_GET['class'].'&child_show='.
+    header('Location: /visit_show.php?class_show='.$_GET['class'].'&child_show='.
     $_GET['child']. '&date_show='.$_GET['date']);
     exit( );
