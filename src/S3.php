@@ -8,8 +8,8 @@ class S3
 
     public function __construct(){
         $this->s3client = new S3Client([
-            'version' => 'latest',
-            'region' => 'us-east-1',
+            'version' => $_ENV['S3_VERSION'],
+            'region' => $_ENV['S3_REGION'],
             'endpoint' => $_ENV['S3_ENDPOINT'],
             'use_path_style_endpoint' => true,
             'credentials' => [

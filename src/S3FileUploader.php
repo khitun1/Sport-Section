@@ -16,4 +16,14 @@ class S3FileUploader implements FileUploader
             'Key' => $_ENV['S3_KEY'] . '/' . $filename,
             'Body' => $file]);
     }
+
+    public function delete($url)
+    {
+        $filename = explode('/', $url);
+        $filename = $filename[count($filename) - 1];
+        return $this->s3client->deleteObject([
+            'Bucket' =>$_ENV['S3_BUCKET'],
+            'Key' => $_ENV['S3_KEY'] . '/' . $filename,
+        ]);
+    }
 }

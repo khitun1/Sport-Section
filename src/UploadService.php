@@ -11,4 +11,8 @@ class UploadService
     public function upload($file, $filename){
         return $this->uploader->store($file,$filename);
     }
+
+    public function delete($url) {
+        return $this->uploader->delete($url);
+    }
 }
