@@ -2,8 +2,6 @@
 namespace Framework;
 include_once $_SERVER['DOCUMENT_ROOT'].'/app/Controllers/MyController.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/app/Controllers/HelloController.php';
-use App\Controllers;
-//use function PHPSTORM_META\elementType;
 
 class Router
 {
