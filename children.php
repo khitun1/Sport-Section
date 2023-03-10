@@ -9,7 +9,7 @@
               <td>'.$row['first_name_child']." ".$row['last_name_child'].'</td>
               <td>'.$row['birthday'].'</td>
               <td>'. $row['class'].'</td>
-              <td> <img src="'. $row['picture_url'].'" height="60px" </td>';
+              <td> <img app="'. $row['picture_url'].'" height="60px" </td>';
         echo '<td><a href=delete_children.php?id='.$row['id_child'].'>Удалить</a></td>';
         echo '</tr>';
     }
