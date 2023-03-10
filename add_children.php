@@ -1,6 +1,4 @@
 <?php
-
-
     require "dbconnect.php";
 
     $file = fopen($_FILES['filename']['tmp_name'], 'r+');
