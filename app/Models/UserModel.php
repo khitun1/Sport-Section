@@ -1,21 +1,12 @@
 <?php
+
 namespace App\Models;
 
+use Framework\Model;
 use Framework\MysqlModel;
 
 class UserModel extends MysqlModel
 {
-    protected $table="user";
+    protected static $table = "user";
 
-    public function deleteWhere($conditions)
-    {
-    }
-
-    public function updateWhere($conditions)
-    {
-    }
-
-    public function create($fields)
-    {
-    }
 }

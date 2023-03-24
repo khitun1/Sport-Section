@@ -10,6 +10,8 @@ class Route
     private $action;
     private $type;
 
+    private $requireAuth = true;
+
     public function __construct($path, $action, $type)
     {
         $this->path = $path;
@@ -43,6 +45,21 @@ class Route
     public function getType()
     {
         return $this->type;
+    }
+
+    public function isRequireAuth(): bool
+    {
+        return $this->requireAuth;
+    }
+
+    public function getControllerClass(): string
+    {
+        return "App\Controllers\\".explode('@', $this->action)[0];
+    }
+
+    public function getControllerMethodName(): string
+    {
+        return explode('@', $this->action)[1];
     }
 
 

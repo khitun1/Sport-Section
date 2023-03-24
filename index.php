@@ -4,6 +4,8 @@ define('PATH_TO_MODELS',$_SERVER['DOCUMENT_ROOT'].'/framework/');
 include_once PATH_TO_MODELS.'Request.php';
 include_once PATH_TO_MODELS.'Router.php';
 include_once PATH_TO_MODELS.'Application.php';
+
+use Framework\Auth;
 use Framework\Request;
 use Framework\Router;
 use Framework\Application;
@@ -15,8 +17,11 @@ if ( file_exists(dirname(__FILE__).'/vendor/autoload.php') ) {
 }
 $url = $_SERVER['REQUEST_URI'];
 $request = new Request();
+
+$auth = new Auth(new Request());
 Application::init();
-echo (new Router($request))->getContent();
+
+echo (new Router($request, $auth))->getContent();
 
 exit();
 

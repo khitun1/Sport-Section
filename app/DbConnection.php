@@ -11,7 +11,7 @@ class DbConnection
         try {
             if (!self::$connection) self::$connection = new PDO("mysql:dbname=sport-section;host=localhost;charset=utf8mb4", "root", '');
             self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Подключение к БД выполнено";
+            //echo "Подключение к БД выполнено";
             return (self::$connection);
         }
         catch(PDOException $e) {

@@ -8,11 +8,9 @@ abstract class Model
         return $this->getWhere([$this->getIdField()=>$id]);
     }
 
-    public abstract function getWhere($conditions);
+    public static abstract function getWhere($field = null, $operation = null, $value = null);
 
-    public function all(){
-        return $this->getWhere([]);
-    }
+    public static abstract function all();
 
     public function deleteById($id){
         $this->getWhere([$this->getIdField()=>$id]);
@@ -24,9 +22,9 @@ abstract class Model
         return $this->updateWhere([$this->getIdField()=>$id]);
     }
 
-    public abstract function updateWhere($conditions);
+    public static abstract function updateWhere($conditions);
 
-    public abstract function create($fields);
+    public static abstract function create($fields);
 
     protected function getIdField(): string
     {
