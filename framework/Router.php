@@ -46,7 +46,7 @@ class Router
     {
         $this->request = $this->auth->enrichByUser($this->request);
         if ($route->isRequireAuth() && !$this->request->getUser()) {
-            throw new UnauthorizedException();
+            //throw new UnauthorizedException();
         }
     }
 
@@ -74,7 +74,7 @@ class Router
     {
         $exec_route = $this->getCurrentRoute();
         if (!$exec_route) {
-            throw new RouteNotFoundException();
+            //throw new RouteNotFoundException();
         };
         $this->checkAuth($exec_route);
         $controller_name = $exec_route->getControllerClass();

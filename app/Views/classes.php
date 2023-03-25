@@ -12,15 +12,14 @@
 <br/>
 <br/>
 <br/>
-<h1>Список пользователей:</h1>
+<h1>Список групп:</h1>
 <ul>
-    <?php foreach ($data['users'] as $user): ?>
+    <?php foreach ($data['classes'] as $class): ?>
         <li>
-            <?=$user->first_name?>
-            <?=$user->last_name?>
-            <?=$user->login?>
+            <?=$class->class?>
         </li>
     <?php endforeach; ?>
+    <?php require 'app/views/footer.php'?>
 </ul>
 </body>
 </html>

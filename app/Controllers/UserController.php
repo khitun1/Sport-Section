@@ -9,8 +9,6 @@ class UserController extends Controller
     public function index()
     {
         $users = new UserModel();
-
-
         return $this->view('users.php', ['users' =>  $users->all()]);
 
     }
