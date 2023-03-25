@@ -23,13 +23,14 @@ class AuthController extends Controller
                     $_SESSION['id'] = $user->id;
                     $_SESSION['msg'] = "Вы успешно вошли в систему";
 
+
                 }
                 else $_SESSION['msg'] = "Неправильный пароль";
 
             }
             else $_SESSION['msg'] = "Неправильный логин";
         }
-        return $this->view('header.php');
+        return $this->view('header.php', ['user' =>  $user]);
 
     }
     public function logout(Request $request){

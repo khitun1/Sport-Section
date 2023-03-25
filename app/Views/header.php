@@ -10,6 +10,7 @@
 <header class="container">
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
         <div class="container-fluid">
             <a class="navbar-brand" href="#">ToDoList</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +41,7 @@
                     echo '</form>';
                 }
                 else {
-                    echo '<a class="nav-link" href="#">Привет, ' . $data['user']->firstname . ' ' . $data['user']->lastname . '</a>';
+                    echo '<a class="nav-link" href="#">Привет, ' . $data['user']->first_name . ' ' . $data['user']->last_name . '</a>';
                     echo '<a class="btn btn-outline-success my-2 my-sm-0" href="/logout">Выйти</a>';
 
                 }
